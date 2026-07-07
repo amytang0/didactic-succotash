@@ -4,7 +4,7 @@
   --ink: #141414;
   --paper: #ffffff;
   --soft-shadow: rgba(17, 17, 17, 0.24);
-  --title-font: "Lato", Arial, sans-serif;
+  --title-font: "Yuyu", cursive;
   --body-font: "Lato", Arial, sans-serif;
 }
 
@@ -139,6 +139,10 @@ h2 {
 
 .section p + p {
   margin-top: 1.2rem;
+}
+
+.section-actions {
+  margin-top: 2rem;
 }
 
 .section-dark {
