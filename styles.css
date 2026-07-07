@@ -188,6 +188,14 @@ h2 {
   background: #f7f7f7;
 }
 
+.site-credit p {
+  margin: 0;
+}
+
+.site-credit p + p {
+  margin-top: 0.35rem;
+}
+
 .site-credit a {
   color: var(--berry);
   font-weight: 700;
