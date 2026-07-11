@@ -14,10 +14,19 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Yuyu&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=20260710-vector-snowflakes">
-    <script src="draw.js?v=20260710-snowflake" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260710-hero-lock">
+    <script src="draw.js?v=20260710-hero-lock" defer></script>
   </head>
   <body class="is-hero-locked">
+    <script>
+      window.setTimeout(
+        () => {
+          document.body.classList.remove("is-hero-locked");
+          document.body.classList.add("is-hero-ready");
+        },
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 7600
+      );
+    </script>
     <main>
       <section class="splash" aria-labelledby="hero-title">
         <div class="snow" aria-hidden="true">
