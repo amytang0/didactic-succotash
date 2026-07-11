@@ -29,6 +29,23 @@ body {
   background: var(--paper);
 }
 
+body.is-hero-locked {
+  overflow: hidden;
+}
+
+body.is-hero-locked .section:not(.splash),
+body.is-hero-locked .site-credit {
+  display: none;
+}
+
+body.is-hero-locked .snowflake-actions {
+  pointer-events: none;
+}
+
+body.is-hero-ready .snowflake-actions {
+  pointer-events: auto;
+}
+
 .splash {
   position: relative;
   display: grid;

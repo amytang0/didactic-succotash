@@ -3,6 +3,7 @@ const saveButton = document.querySelector("#save-drawing");
 const colorButtons = document.querySelectorAll("[data-color]");
 const sizeButtons = document.querySelectorAll("[data-size]");
 const stampButtons = document.querySelectorAll("[data-stamp]");
+const heroCopy = document.querySelector(".hero-copy");
 const context = canvas.getContext("2d");
 
 let currentColor = "#e53935";
@@ -10,6 +11,31 @@ let currentSize = 1;
 let currentStamp = null;
 let isDrawing = false;
 let lastPoint = null;
+let heroUnlockTimer = null;
+
+const unlockHero = () => {
+  if (!document.body.classList.contains("is-hero-locked")) {
+    return;
+  }
+
+  document.body.classList.remove("is-hero-locked");
+  document.body.classList.add("is-hero-ready");
+  window.clearTimeout(heroUnlockTimer);
+};
+
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  unlockHero();
+} else if (heroCopy) {
+  heroCopy.addEventListener("animationend", (event) => {
+    if (event.animationName === "hero-reveal") {
+      unlockHero();
+    }
+  });
+
+  heroUnlockTimer = window.setTimeout(unlockHero, 7600);
+} else {
+  unlockHero();
+}
 
 context.fillStyle = "#ffffff";
 context.fillRect(0, 0, canvas.width, canvas.height);
