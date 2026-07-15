@@ -37,10 +37,27 @@ if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   unlockHero();
 }
 
-context.fillStyle = "#ffffff";
-context.fillRect(0, 0, canvas.width, canvas.height);
 context.lineCap = "round";
 context.lineJoin = "round";
+
+const drawSnowmanBase = (targetContext) => {
+  targetContext.fillStyle = "#eaf4f8";
+  targetContext.fillRect(0, 0, 360, 360);
+  targetContext.fillStyle = "#ffffff";
+  targetContext.strokeStyle = "#91aebb";
+  targetContext.lineWidth = 3;
+
+  [
+    { x: 180, y: 270, radius: 72 },
+    { x: 180, y: 171, radius: 57 },
+    { x: 180, y: 82, radius: 43 },
+  ].forEach(({ x, y, radius }) => {
+    targetContext.beginPath();
+    targetContext.arc(x, y, radius, 0, Math.PI * 2);
+    targetContext.fill();
+    targetContext.stroke();
+  });
+};
 
 const setActive = (buttons, activeButton) => {
   buttons.forEach((button) => button.classList.toggle("is-active", button === activeButton));
@@ -233,10 +250,16 @@ if (window.PointerEvent) {
 }
 
 saveButton.addEventListener("click", () => {
+  const exportCanvas = document.createElement("canvas");
+  const exportContext = exportCanvas.getContext("2d");
   const link = document.createElement("a");
 
+  exportCanvas.width = canvas.width;
+  exportCanvas.height = canvas.height;
+  drawSnowmanBase(exportContext);
+  exportContext.drawImage(canvas, 0, 0);
   link.download = "the-snow-woman-drawing.png";
-  link.href = canvas.toDataURL("image/png");
+  link.href = exportCanvas.toDataURL("image/png");
   link.click();
 });
 

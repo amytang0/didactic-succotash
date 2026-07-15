@@ -14,8 +14,8 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Yuyu&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=20260715-unsplash-photo">
-    <script src="draw.js?v=20260710-hero-lock" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260715-snowman-layer">
+    <script src="draw.js?v=20260715-snowman-layer" defer></script>
   </head>
   <body class="is-hero-locked">
     <script>
@@ -313,7 +313,25 @@
               </div>
             </div>
 
-            <canvas id="drawing-canvas" width="360" height="360" aria-label="Drawable canvas"></canvas>
+            <div class="canvas-stack">
+              <svg
+                class="snowman-base"
+                viewBox="0 0 360 360"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <rect width="360" height="360" fill="#eaf4f8"></rect>
+                <circle cx="180" cy="270" r="72"></circle>
+                <circle cx="180" cy="171" r="57"></circle>
+                <circle cx="180" cy="82" r="43"></circle>
+              </svg>
+              <canvas
+                id="drawing-canvas"
+                width="360"
+                height="360"
+                aria-label="Decorate a snowman with your own drawing"
+              ></canvas>
+            </div>
 
             <div class="draw-actions">
               <button class="button button-primary" type="button" id="save-drawing">Save drawing</button>
