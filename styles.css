@@ -6,9 +6,9 @@
   --soft-shadow: rgba(17, 17, 17, 0.24);
   --night-sky-gradient: linear-gradient(
     to bottom,
-    #01040c 0%,
-    #020914 42%,
-    #061936 100%
+    #62c8f5 0%,
+    #38a8e8 42%,
+    #1677c8 100%
   );
   --title-font: "Yuyu", cursive;
   --body-font: "Lato", Arial, sans-serif;
@@ -91,8 +91,8 @@ body.is-hero-ready .snowflake-actions {
 
 .splash::after {
   background:
-    linear-gradient(rgba(2, 12, 34, 0.44), rgba(2, 12, 34, 0.44)),
-    linear-gradient(rgba(4, 22, 58, 0.24), rgba(1, 6, 18, 0.58));
+    linear-gradient(rgba(36, 153, 218, 0.16), rgba(36, 153, 218, 0.16)),
+    linear-gradient(rgba(104, 201, 245, 0.12), rgba(17, 105, 180, 0.32));
 }
 
 .hero-copy {
@@ -114,6 +114,7 @@ h2 {
 }
 
 h1 {
+  font-family: Arial, sans-serif;
   font-size: clamp(4.8rem, 12vw, 9.5rem);
   line-height: 0.95;
 }
@@ -287,6 +288,21 @@ h2 {
 
 .section-actions {
   margin-top: 2rem;
+}
+
+.section-actions .button + .button {
+  margin-left: 0.65rem;
+}
+
+.button-print {
+  border-color: #aeb9c0;
+}
+
+.section-actions .print-note {
+  margin-top: 0.8rem;
+  color: #5b6268;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .section-dark {
@@ -523,6 +539,10 @@ h2 {
 .draw-actions {
   justify-content: center;
   margin-top: 1.25rem;
+}
+
+.print-template {
+  display: none;
 }
 
 .author-layout {
@@ -820,6 +840,11 @@ h2 {
     width: 100%;
   }
 
+  .section-actions .button + .button {
+    margin-top: 0.65rem;
+    margin-left: 0;
+  }
+
   .snowflake-actions {
     display: grid;
     grid-template-columns: 1fr;
@@ -864,6 +889,11 @@ h2 {
 
   .draw-tool {
     width: 100%;
+    min-width: 0;
+  }
+
+  .color-picker {
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .tool-row {
@@ -896,5 +926,67 @@ h2 {
   .hero-copy {
     animation: none;
     transition: none;
+  }
+}
+
+@media print {
+  @page {
+    size: letter portrait;
+    margin: 0.45in;
+  }
+
+  body > script,
+  main > :not(.print-template),
+  .site-credit {
+    display: none !important;
+  }
+
+  body,
+  main {
+    margin: 0;
+    color: #111111;
+    background: #ffffff;
+  }
+
+  .print-template {
+    display: flex;
+    min-height: 9.9in;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.15in 0.3in;
+    text-align: center;
+  }
+
+  .print-template h1 {
+    margin: 0;
+    font-family: var(--body-font);
+    font-size: 28pt;
+    font-weight: 900;
+  }
+
+  .print-template p {
+    margin: 0.12in 0 0;
+    font-size: 13pt;
+    line-height: 1.35;
+  }
+
+  .print-template svg {
+    display: block;
+    width: 5.9in;
+    height: 7.2in;
+    margin-top: 0.12in;
+    overflow: visible;
+  }
+
+  .print-template circle {
+    fill: #ffffff;
+    stroke: #111111;
+    stroke-width: 5;
+  }
+
+  .print-template .print-signature {
+    align-self: stretch;
+    margin-top: auto;
+    text-align: left;
   }
 }

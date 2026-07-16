@@ -14,8 +14,8 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Yuyu&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=20260715-snowman-layer">
-    <script src="draw.js?v=20260715-snowman-layer" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260715-two-ball-template">
+    <script src="draw.js?v=20260715-two-ball-template" defer></script>
   </head>
   <body class="is-hero-locked">
     <script>
@@ -81,7 +81,7 @@
                   </g>
                 </g>
               </svg>
-              <a class="button button-snowflake" href="#blueberry_pie_recipe">Blueberry Pie Recipe</a>
+              <a class="button button-snowflake" href="#blueberry_pie_recipe">Grandma's Blueberry Pie</a>
             </div>
             <div class="snowflake-link">
               <svg class="nav-snowflake" viewBox="-180 -180 360 360" aria-hidden="true">
@@ -113,7 +113,7 @@
                   </g>
                 </g>
               </svg>
-              <a class="button button-snowflake" href="#about_the_author">About the Author</a>
+              <a class="button button-snowflake" href="#about_the_author">About Michael</a>
             </div>
             <div class="snowflake-link">
               <svg class="nav-snowflake" viewBox="-180 -180 360 360" aria-hidden="true">
@@ -165,7 +165,7 @@
                   </g>
                 </g>
               </svg>
-              <a class="button button-snowflake" href="#draw_your_own_snowman">Draw Your Own Snowman</a>
+              <a class="button button-snowflake" href="#draw_your_own_snowman">Make your own snowperson</a>
             </div>
           </div>
         </div>
@@ -187,7 +187,7 @@
             </figcaption>
           </figure>
           <div>
-            <h2 id="blueberry-pie-title">Blueberry Pie Recipe</h2>
+            <h2 id="blueberry-pie-title">Grandma's Blueberry Pie</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel arcu
               nec sem luctus efficitur. Suspendisse potenti. Curabitur vitae nibh
@@ -205,7 +205,7 @@
       <section id="about_the_author" class="section section-light" aria-labelledby="author-title">
         <div class="section-inner author-layout">
           <div>
-            <h2 id="author-title">About the Author</h2>
+            <h2 id="author-title">About Michael</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed
               lectus sed eros dignissim venenatis. Nulla facilisi. Etiam porta
@@ -250,7 +250,7 @@
       <section id="draw_your_own_snowman" class="section section-draw" aria-labelledby="draw-title">
         <div class="section-inner draw-layout">
           <div>
-            <h2 id="draw-title">Draw Your Own Snowman</h2>
+            <h2 id="draw-title">Make your own snowperson</h2>
             <p>
               What would you like for a nose? Not a carrot. How about a banana?<br>
               What would you like for ears? Not potatoes. How about gloves?<br>
@@ -258,7 +258,9 @@
               How interesting can you make your snow person?
             </p>
             <div class="section-actions">
-              <a class="button button-navy" href="mailto:michaelandrewbeer@yahoo.com?subject=My%20snowman">Send the author your snowman</a>
+              <a class="button button-navy" href="mailto:michaelandrewbeer@yahoo.com?subject=My%20snowperson%20picture">Email Michael your picture</a>
+              <button class="button button-secondary button-print" type="button" id="print-template">Make your snowperson for real</button>
+              <p class="print-note">Print a blank snowperson template to decorate with real craft supplies.</p>
             </div>
           </div>
 
@@ -279,10 +281,10 @@
               <div class="control-group">
                 <p class="tool-label">Brush sizes</p>
                 <div class="segmented-control" role="group" aria-label="Brush size">
-                  <button class="tool-button brush-size is-active" type="button" data-size="1" aria-label="1 pixel brush">
+                  <button class="tool-button brush-size" type="button" data-size="1" aria-label="1 pixel brush">
                     <span style="--brush-preview: 1px;"></span>
                   </button>
-                  <button class="tool-button brush-size" type="button" data-size="5" aria-label="5 pixel brush">
+                  <button class="tool-button brush-size is-active" type="button" data-size="5" aria-label="5 pixel brush">
                     <span style="--brush-preview: 5px;"></span>
                   </button>
                   <button class="tool-button brush-size" type="button" data-size="15" aria-label="15 pixel brush">
@@ -321,9 +323,8 @@
                 focusable="false"
               >
                 <rect width="360" height="360" fill="#eaf4f8"></rect>
-                <circle cx="180" cy="270" r="72"></circle>
-                <circle cx="180" cy="171" r="57"></circle>
-                <circle cx="180" cy="82" r="43"></circle>
+                <circle cx="180" cy="250" r="88"></circle>
+                <circle cx="180" cy="105" r="62"></circle>
               </svg>
               <canvas
                 id="drawing-canvas"
@@ -339,11 +340,20 @@
           </div>
         </div>
       </section>
+
+      <section id="print-snowman-template" class="print-template" aria-hidden="true">
+        <h1>Make Your Snowperson</h1>
+        <p>Decorate, color, and bring your snowperson to life!</p>
+        <svg viewBox="0 0 600 760" role="img" aria-label="Blank two-ball snowperson template">
+          <circle cx="300" cy="500" r="205"></circle>
+          <circle cx="300" cy="180" r="135"></circle>
+        </svg>
+        <p class="print-signature">Created by: ______________________________</p>
+      </section>
     </main>
     <footer class="site-credit">
       <p>
-        Photo by <a href="https://unsplash.com/@sametomorrow">Adam Chang</a> on
-        <a href="https://unsplash.com/photos/snow-field-and-green-pine-trees-during-daytime-IWenq-4JHqo">Unsplash</a>
+        Splash photo by <a href="https://unsplash.com/@sametomorrow">Adam</a>.
       </p>
       <p>
         Website made by

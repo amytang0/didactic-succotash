@@ -1,5 +1,6 @@
 const canvas = document.querySelector("#drawing-canvas");
 const saveButton = document.querySelector("#save-drawing");
+const printButton = document.querySelector("#print-template");
 const colorButtons = document.querySelectorAll("[data-color]");
 const sizeButtons = document.querySelectorAll("[data-size]");
 const stampButtons = document.querySelectorAll("[data-stamp]");
@@ -7,7 +8,7 @@ const heroCopy = document.querySelector(".hero-copy");
 const context = canvas.getContext("2d");
 
 let currentColor = "#e53935";
-let currentSize = 1;
+let currentSize = 5;
 let currentStamp = null;
 let isDrawing = false;
 let lastPoint = null;
@@ -48,9 +49,8 @@ const drawSnowmanBase = (targetContext) => {
   targetContext.lineWidth = 3;
 
   [
-    { x: 180, y: 270, radius: 72 },
-    { x: 180, y: 171, radius: 57 },
-    { x: 180, y: 82, radius: 43 },
+    { x: 180, y: 250, radius: 88 },
+    { x: 180, y: 105, radius: 62 },
   ].forEach(({ x, y, radius }) => {
     targetContext.beginPath();
     targetContext.arc(x, y, radius, 0, Math.PI * 2);
@@ -261,6 +261,10 @@ saveButton.addEventListener("click", () => {
   link.download = "the-snow-woman-drawing.png";
   link.href = exportCanvas.toDataURL("image/png");
   link.click();
+});
+
+printButton.addEventListener("click", () => {
+  window.print();
 });
 
 window.snowWomanDrawReady = true;
